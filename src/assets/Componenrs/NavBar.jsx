@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaUserAlt } from 'react-icons/fa';
 import { Link, NavLink } from 'react-router-dom';
 
 const NavBar = () => {
@@ -8,19 +9,16 @@ const NavBar = () => {
         <NavLink to='/about'>About</NavLink>
     </>
     return (
-        <div className='flex justify-between items-center'>
-            <div>
-
-            </div>
-            <div className='space-x-3 m-3'>
-            {
-                link
-            }
-            </div>
-            <div className='logIn'> 
-                
-            </div>
+      <div className="flex justify-between items-center mt-4">
+        <div></div>
+        <div className="space-x-3 m-3">{link}</div>
+        <div className="logIn flex items-center gap-2">
+          <div className="">
+            <FaUserAlt className='text-4xl border border-gray-500 rounded-full'/>
+          </div>
+          <button className='btn btn-secondary'>LogIn</button>
         </div>
+      </div>
     );
 };
 
