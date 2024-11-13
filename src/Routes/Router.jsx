@@ -1,10 +1,14 @@
 import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
+import Home from '../Layouts/Home';
+import Career from '../Layouts/Career';
+import About from '../Layouts/About';
+import Fourzeror from '../Layouts/Fourzeror';
 
 const Router = createBrowserRouter([
   {
     path: "/",
-    element: <h1>Home</h1>,
+    element: <Home></Home>,
   },
   {
     path: "/news",
@@ -16,7 +20,15 @@ const Router = createBrowserRouter([
   },
   {
     path: "*",
-    element: <h1>Error</h1>,
+    element: <Fourzeror></Fourzeror>,
+  },
+  {
+    path: "/career",
+    element: <Career></Career>,
+  },
+  {
+    path: "/abot",
+    element: <About></About>,
   },
 ]);
 
