@@ -5,6 +5,8 @@ import NavBar from '../assets/Componenrs/NavBar';
 import { Helmet } from 'react-helmet';
 import LeftSide from './Components/LeftSide';
 import RightSide from './Components/RightSide';
+import Footer from '../assets/Componenrs/Footer';
+import { Outlet } from 'react-router-dom';
 
 const Home = () => {
     return (
@@ -24,11 +26,17 @@ const Home = () => {
           <aside className="float-start col-span-3 max-sm:col-span-12">
             <LeftSide></LeftSide>
           </aside>
-          <section className="col-span-6 max-sm:col-span-12">news</section>
+          <section className="col-span-6 max-sm:col-span-12">
+          <Outlet></Outlet>
+          </section>
           <aside className="float-start col-span-3 max-sm:col-span-12">
             <RightSide></RightSide>
           </aside>
         </main>
+
+        <footer className='mt-12'>
+          <Footer></Footer>
+        </footer>
 
         <Helmet>
           <meta charSet="utf-8" />

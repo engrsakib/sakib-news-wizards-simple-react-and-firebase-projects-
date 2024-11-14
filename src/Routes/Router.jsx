@@ -1,5 +1,5 @@
 import React from 'react';
-import { createBrowserRouter } from 'react-router-dom';
+import { createBrowserRouter, Navigate } from 'react-router-dom';
 import Home from '../Layouts/Home';
 import Career from '../Layouts/Career';
 import About from '../Layouts/About';
@@ -9,6 +9,16 @@ const Router = createBrowserRouter([
   {
     path: "/",
     element: <Home></Home>,
+    children: [
+      {
+        path: "",
+        element: <Navigate to={`/category/01`}></Navigate>,
+      },
+      {
+        path: "/category/:id",
+        element: <h1>data</h1>,
+      },
+    ],
   },
   {
     path: "/news",
