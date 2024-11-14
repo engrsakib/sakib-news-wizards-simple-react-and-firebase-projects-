@@ -3,6 +3,7 @@ import Header from '../assets/Componenrs/Header';
 import LetestNews from '../assets/Componenrs/LetestNews';
 import NavBar from '../assets/Componenrs/NavBar';
 import { Helmet } from 'react-helmet';
+import LeftSide from './Components/LeftSide';
 
 const Home = () => {
     return (
@@ -18,7 +19,10 @@ const Home = () => {
           </section>
         </header>
         <main className="w-11/12 mx-auto pt-5 grid grid-cols-12">
-          <aside className="float-start col-span-3">left side</aside>
+        {/* left side */}
+          <aside className="float-start col-span-3">
+          <LeftSide></LeftSide>
+          </aside>
           <section className="col-span-6">news</section>
           <aside className="float-start col-span-3">right side</aside>
         </main>
