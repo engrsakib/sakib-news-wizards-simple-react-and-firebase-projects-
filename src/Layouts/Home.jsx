@@ -20,12 +20,12 @@ const Home = () => {
           </section>
         </header>
         <main className="w-11/12 mx-auto pt-5 grid grid-cols-12">
-        {/* left side */}
-          <aside className="float-start col-span-3">
-          <LeftSide></LeftSide>
+          {/* left side */}
+          <aside className="float-start col-span-3 max-sm:col-span-12">
+            <LeftSide></LeftSide>
           </aside>
-          <section className="col-span-6">news</section>
-          <aside className="float-start col-span-3">
+          <section className="col-span-6 max-sm:col-span-12">news</section>
+          <aside className="float-start col-span-3 max-sm:col-span-12">
             <RightSide></RightSide>
           </aside>
         </main>
