@@ -21,10 +21,12 @@ const LeftSide = () => {
     
     return (
       <>
-        <div className="font-[600] text-[20px]">All Caterogy</div>
-        <section className='flex flex-col gap-3 mt-3'>
+        <div className="subHeading">All Categrogy</div>
+        <section className="flex flex-col gap-3 mt-3">
           {data.map((ctg) => (
-            <NavLink className='btn' key={ctg.category_id}>{ctg.category_name}</NavLink>
+            <NavLink className="btn" key={ctg.category_id}>
+              {ctg.category_name}
+            </NavLink>
           ))}
         </section>
       </>

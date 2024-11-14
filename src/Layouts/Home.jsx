@@ -4,6 +4,7 @@ import LetestNews from '../assets/Componenrs/LetestNews';
 import NavBar from '../assets/Componenrs/NavBar';
 import { Helmet } from 'react-helmet';
 import LeftSide from './Components/LeftSide';
+import RightSide from './Components/RightSide';
 
 const Home = () => {
     return (
@@ -24,7 +25,9 @@ const Home = () => {
           <LeftSide></LeftSide>
           </aside>
           <section className="col-span-6">news</section>
-          <aside className="float-start col-span-3">right side</aside>
+          <aside className="float-start col-span-3">
+            <RightSide></RightSide>
+          </aside>
         </main>
 
         <Helmet>

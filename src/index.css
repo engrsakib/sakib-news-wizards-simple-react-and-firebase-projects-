@@ -3,11 +3,13 @@
 @tailwind utilities;
 
 @layer components{
-
+ .subHeading{
+        @apply font-[600] text-[20px];
+    }
 }
 
 @layer utilities{
-
+    
 }
 
 @layer base{
