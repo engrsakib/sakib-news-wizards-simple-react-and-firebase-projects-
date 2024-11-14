@@ -4,6 +4,7 @@ import Home from '../Layouts/Home';
 import Career from '../Layouts/Career';
 import About from '../Layouts/About';
 import Fourzeror from '../Layouts/Fourzeror';
+import CatgNews from '../pages/CatgNews';
 
 const Router = createBrowserRouter([
   {
@@ -16,7 +17,8 @@ const Router = createBrowserRouter([
       },
       {
         path: "/category/:id",
-        element: <h1>data</h1>,
+        element: <CatgNews></CatgNews>,
+        loader: ({params}) => fetch(`https://openapi.programming-hero.com/api/news/category/${params.id}`)
       },
     ],
   },
