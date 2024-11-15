@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet';
 import { NavLink } from 'react-router-dom';
 
 const LeftSide = () => {
     const [data, setData] = useState([]);
+   
     useEffect(()=>{
         try {
             const allDataLoaded = async () => {
@@ -27,9 +29,7 @@ const LeftSide = () => {
             <NavLink
               to={`/category/${ctg.category_id}`}
               className={({ isActive }) =>
-                isActive
-                  ? "text-white btn bg-blue-500"
-                  : "btn"
+                isActive ? "text-white btn bg-blue-500" : "btn"
               }
               key={ctg.category_id}
             >

@@ -6,6 +6,8 @@ import About from '../Layouts/About';
 import Fourzeror from '../Layouts/Fourzeror';
 import CatgNews from '../pages/CatgNews';
 import ManiPage from '../pages/ManiPage';
+import PrivatePage from '../pages/PrivatePage';
+import LogIn from '../pages/LogIn';
 
 const Router = createBrowserRouter([
   {
@@ -28,15 +30,15 @@ const Router = createBrowserRouter([
                 `https://openapi.programming-hero.com/api/news/category/${params.id}`
               ),
           },
-          {
-            path: "/career",
-            element: <Career></Career>,
-          },
-          {
-            path: "/about",
-            element: <About></About>,
-          },
         ],
+      },
+      {
+        path: "/career",
+        element: <Career></Career>,
+      },
+      {
+        path: "/about",
+        element: <About></About>,
       },
     ],
   },
@@ -46,12 +48,24 @@ const Router = createBrowserRouter([
   },
   {
     path: "/auth",
-    element: <h1>LogIn</h1>,
+    element: <PrivatePage></PrivatePage>,
+    children:[
+      {
+        path: '/auth/logIn',
+        element: <LogIn></LogIn>
+      },
+      {
+        path: "/auth/register",
+        element: <h1>Register</h1>
+      }
+    ]
+   
   },
   {
     path: "*",
     element: <Fourzeror></Fourzeror>,
   },
+  
 ]);
 
 export default Router;

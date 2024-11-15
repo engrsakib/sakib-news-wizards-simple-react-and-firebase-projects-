@@ -4,16 +4,24 @@ import { Link } from 'react-router-dom';
 
 const LetestNews = () => {
     return (
-        <>
-            <div className='flex items-center gap-3 bg-base-200'>
-                <p className='btn btn-success'>Letest News:</p>
-                <Marquee pauseOnHover={true} className='space-x-3'>
-                    <Link to='/news'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At, natus.</Link>
+      <>
+        <div className="flex items-center gap-3 bg-base-200">
+          <p className="btn btn-success">Letest News:</p>
+          <Marquee pauseOnHover={true} className="space-x-3">
+            <Link to="/news">
+              HC strikes down indemnity in fast-track energy procurement
+            </Link>
 
-                    <Link to='/news'>ipsum dolor sit amet, consectetur adipisicing elit. At, natus.</Link>
-                </Marquee>
-            </div>
-        </>
+            <Link to="/news">
+              Bank accounts of NRBC chair Parvez Tamal, 2 others frozen
+            </Link>
+
+            <Link to="/news">Playing the minority card</Link>
+
+            <Link to="/news">Stocks rise</Link>
+          </Marquee>
+        </div>
+      </>
     );
 };
 

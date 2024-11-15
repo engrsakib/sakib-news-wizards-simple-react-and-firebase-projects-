@@ -14,9 +14,11 @@ const NavBar = () => {
         <div className="space-x-3 m-3">{link}</div>
         <div className="logIn flex items-center gap-2">
           <div className="">
-            <FaUserAlt className='text-4xl border border-gray-500 rounded-full'/>
+            <FaUserAlt className="text-4xl border border-gray-500 rounded-full" />
           </div>
-          <button className='btn btn-secondary'>LogIn</button>
+          <Link to="/auth/logIn" className="btn btn-secondary">
+            LogIn
+          </Link>
         </div>
       </div>
     );
