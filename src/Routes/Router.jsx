@@ -8,6 +8,7 @@ import CatgNews from '../pages/CatgNews';
 import ManiPage from '../pages/ManiPage';
 import PrivatePage from '../pages/PrivatePage';
 import LogIn from '../pages/LogIn';
+import Register from '../pages/Register';
 
 const Router = createBrowserRouter([
   {
@@ -49,23 +50,21 @@ const Router = createBrowserRouter([
   {
     path: "/auth",
     element: <PrivatePage></PrivatePage>,
-    children:[
+    children: [
       {
-        path: '/auth/logIn',
-        element: <LogIn></LogIn>
+        path: "/auth/logIn",
+        element: <LogIn></LogIn>,
       },
       {
         path: "/auth/register",
-        element: <h1>Register</h1>
-      }
-    ]
-   
+        element: <Register></Register>,
+      },
+    ],
   },
   {
     path: "*",
     element: <Fourzeror></Fourzeror>,
   },
-  
 ]);
 
 export default Router;

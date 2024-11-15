@@ -1,10 +1,11 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
+import NavBar from '../assets/Componenrs/NavBar';
 
 const PrivatePage = () => {
     return (
         <div>
-            <h1>private route</h1>
+            <NavBar></NavBar>
             <Outlet></Outlet>
         </div>
     );

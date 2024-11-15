@@ -42,7 +42,7 @@ const LogIn = () => {
 
             <p className="text-center mt-4 text-gray-600">
               Don't Have An Account?{" "}
-              <Link to="/register" className="text-red-500">
+              <Link to="/auth/register" className="text-red-500">
                 Register
               </Link>
             </p>
