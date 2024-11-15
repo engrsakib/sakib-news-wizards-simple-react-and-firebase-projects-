@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 
 const LogIn = () => {
@@ -48,6 +49,11 @@ const LogIn = () => {
             </p>
           </div>
         </div>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>LogIn</title>
+          <link rel="icon" type="image/svg+xml" href="/home.png" />
+        </Helmet>
       </>
     );
 };

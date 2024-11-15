@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet';
+import { Link } from 'react-router-dom';
 
 const Register = () => {
      const [formData, setFormData] = useState({
@@ -23,7 +25,7 @@ const Register = () => {
      };
     return (
       <>
-        <div className="min-h-screen flex items-center justify-center bg-gray-100">
+        <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4">
           <div className="bg-white p-8 rounded shadow-md w-full max-w-md">
             <h2 className="text-2xl font-semibold text-center mb-6">
               Register your account
@@ -111,8 +113,19 @@ const Register = () => {
                 Register
               </button>
             </form>
+            <p className="mt-4 text-center text-gray-600">
+              Already have an account?{" "}
+              <Link to="/auth/login" className="text-orange-400 font-semibold">
+                LogIn
+              </Link>
+            </p>
           </div>
         </div>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>Register</title>
+          <link rel="icon" type="image/svg+xml" href="/home.png" />
+        </Helmet>
       </>
     );
 };
