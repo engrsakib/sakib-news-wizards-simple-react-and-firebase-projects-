@@ -11,7 +11,7 @@ const NewsDetiels = () => {
     useEffect(()=>{
         setnews(data.data[0]);
     },[]);
-    console.log(news)
+    // console.log(news)
   return (
     <>
       <Header></Header>

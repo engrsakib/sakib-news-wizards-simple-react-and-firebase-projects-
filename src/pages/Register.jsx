@@ -24,7 +24,7 @@ const Register = () => {
      };
      const handleSubmit = (e) => {
        e.preventDefault();
-       console.log("Form submitted:", formData.password);
+      //  console.log("Form submitted:", formData.password);
        createNewUser(formData.email, formData.password)
        .then((userCredential) => {
             // Signed up
