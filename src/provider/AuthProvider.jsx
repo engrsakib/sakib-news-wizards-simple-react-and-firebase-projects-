@@ -8,12 +8,13 @@ import {
   signOut,
 } from "firebase/auth";
 import app from "../Firebase/firebase.config";
+import { Navigate } from "react-router-dom";
 
 export const authContex = createContext();
 const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  console.log(user);
+//   console.log(user);
   const createNewUser = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
   };
@@ -22,6 +23,7 @@ const AuthProvider = ({ children }) => {
       .then(() => {
         // Sign-out successful.
         setUser(null);
+        <Navigate to={`/auth/LogIn`}></Navigate>
       })
       .catch((error) => {
         // An error happened.

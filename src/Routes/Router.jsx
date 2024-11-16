@@ -10,6 +10,7 @@ import PrivatePage from '../pages/PrivatePage';
 import LogIn from '../pages/LogIn';
 import Register from '../pages/Register';
 import NewsDetiels from '../pages/NewsDetiels';
+import PrivateRoutes from './PrivateRoutes';
 
 const Router = createBrowserRouter([
   {
@@ -46,10 +47,13 @@ const Router = createBrowserRouter([
   },
   {
     path: "/news/:id",
-    element: <NewsDetiels></NewsDetiels>,
-    loader: ({params})=>fetch(
-      ` https://openapi.programming-hero.com/api/news/${params.id}`
+    element: (
+      <PrivateRoutes>
+        <NewsDetiels></NewsDetiels>
+      </PrivateRoutes>
     ),
+    loader: ({ params }) =>
+      fetch(` https://openapi.programming-hero.com/api/news/${params.id}`),
   },
   {
     path: "/auth",
