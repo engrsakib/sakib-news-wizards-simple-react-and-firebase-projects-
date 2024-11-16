@@ -42,11 +42,14 @@ const Router = createBrowserRouter([
         path: "/about",
         element: <About></About>,
       },
-      {
-        path: "/news/:id",
-        element: <NewsDetiels></NewsDetiels>,
-      },
     ],
+  },
+  {
+    path: "/news/:id",
+    element: <NewsDetiels></NewsDetiels>,
+    loader: ({params})=>fetch(
+      ` https://openapi.programming-hero.com/api/news/${params.id}`
+    ),
   },
   {
     path: "/auth",
