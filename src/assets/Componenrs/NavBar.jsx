@@ -19,24 +19,24 @@ const NavBar = () => {
         <div className="space-x-3 m-3">{link}</div>
         <div className="logIn flex items-center gap-2">
           <div className="">
-            {user && (
+            {user ? (
               <img
                 className="w-[60px] h-[60px] rounded-full shadow-sm border bottom-1"
                 src={user.photoURL}
               ></img>
-            )}
-          </div>
-          <div>
-            {!user ? (
-              <Link to="/auth/logIn" className="btn btn-secondary">
-                LogIn
-              </Link>
             ) : (
-              <button onClick={logOut} className="btn btn-secondary">
-                LogOut
-              </button>
+              <FaUserAlt className="text-4xl border border-gray-500 rounded-full" />
             )}
           </div>
+          {!user ? (
+            <Link to="/auth/logIn" className="btn btn-secondary">
+              LogIn
+            </Link>
+          ) : (
+            <button onClick={logOut} className="btn btn-secondary">
+              LogOut
+            </button>
+          )}
         </div>
       </div>
     );
