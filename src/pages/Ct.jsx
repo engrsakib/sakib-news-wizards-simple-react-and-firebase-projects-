@@ -10,7 +10,7 @@ const Ct = ({ ct }) => {
     author,
     category_id,
     total_view,
-    id,
+    _id,
     details,
     image_url,
     rating,
@@ -51,7 +51,7 @@ const Ct = ({ ct }) => {
             <p className="text-[16px] font-[600] p-2">
               {details} <br />
               <span className="text-rose-700">
-                <Link>Read More..</Link>
+                <Link to={`/news/${_id}`}>Read More..</Link>
               </span>
             </p>
             <hr />

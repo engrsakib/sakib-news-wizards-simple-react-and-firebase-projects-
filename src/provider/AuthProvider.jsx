@@ -4,6 +4,7 @@ import {
   createUserWithEmailAndPassword,
   getAuth,
   onAuthStateChanged,
+  signInWithEmailAndPassword,
   signOut,
 } from "firebase/auth";
 import app from "../Firebase/firebase.config";
@@ -26,11 +27,15 @@ const AuthProvider = ({ children }) => {
         // An error happened.
       });
   };
+  const logIn = (email, password) =>{
+    return signInWithEmailAndPassword(auth, email, password);
+  }
   const authInfo = {
     user,
     setUser,
     createNewUser,
     logOut,
+    logIn
   };
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {

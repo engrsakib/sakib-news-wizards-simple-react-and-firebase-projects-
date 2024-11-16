@@ -9,6 +9,7 @@ import ManiPage from '../pages/ManiPage';
 import PrivatePage from '../pages/PrivatePage';
 import LogIn from '../pages/LogIn';
 import Register from '../pages/Register';
+import NewsDetiels from '../pages/NewsDetiels';
 
 const Router = createBrowserRouter([
   {
@@ -41,11 +42,11 @@ const Router = createBrowserRouter([
         path: "/about",
         element: <About></About>,
       },
+      {
+        path: "/news/:id",
+        element: <NewsDetiels></NewsDetiels>,
+      },
     ],
-  },
-  {
-    path: "/news",
-    element: <h1>news</h1>,
   },
   {
     path: "/auth",
