@@ -21,7 +21,7 @@ const Register = () => {
      const handleSubmit = (e) => {
        e.preventDefault();
        console.log("Form submitted:", formData);
-       // Add form validation and submission logic here
+       
      };
     return (
       <>
@@ -52,7 +52,7 @@ const Register = () => {
                   Photo URL
                 </label>
                 <input
-                  type="text"
+                  type="url"
                   id="photoUrl"
                   name="photoUrl"
                   placeholder="Enter your photo URL"
@@ -100,6 +100,7 @@ const Register = () => {
                   className="checkbox"
                   checked={formData.acceptTerms}
                   onChange={handleChange}
+                  required
                 />
                 <label htmlFor="acceptTerms" className="ml-2 text-gray-600">
                   Accept{" "}

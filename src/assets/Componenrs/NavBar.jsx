@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FaUserAlt } from 'react-icons/fa';
 import { Link, NavLink } from 'react-router-dom';
+import { authContex } from '../../provider/AuthProvider';
 
 const NavBar = () => {
+  const {user} = useContext(authContex);
+
     const link = <>
         <NavLink to='/'>Home</NavLink>
         <NavLink to='/career'>Career</NavLink>
@@ -10,7 +13,9 @@ const NavBar = () => {
     </>
     return (
       <div className="flex justify-between items-center mt-4">
-        <div></div>
+        <div>
+          <h1>{user && user.name}</h1>
+        </div>
         <div className="space-x-3 m-3">{link}</div>
         <div className="logIn flex items-center gap-2">
           <div className="">
