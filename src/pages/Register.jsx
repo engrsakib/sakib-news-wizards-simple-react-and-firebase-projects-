@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
+import { authContex } from '../provider/AuthProvider';
 
 const Register = () => {
+    const {createNewUser, user, setUser} = useContext(authContex);
+
      const [formData, setFormData] = useState({
        name: "",
        photoUrl: "",
@@ -20,8 +23,23 @@ const Register = () => {
      };
      const handleSubmit = (e) => {
        e.preventDefault();
-       console.log("Form submitted:", formData);
-       
+       console.log("Form submitted:", formData.password);
+       createNewUser(formData.email, formData.password)
+       .then((userCredential) => {
+            // Signed up
+            const user = userCredential.user;
+            setUser(user);
+            // console.log(user);
+            // ...
+          })
+          .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+
+            console.log("error code", errorCode);
+            console.log("error Massage", errorMessage);
+            // ..
+          });
      };
     return (
       <>
