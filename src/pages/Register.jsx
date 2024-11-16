@@ -123,7 +123,7 @@ const Register = () => {
         </div>
         <Helmet>
           <meta charSet="utf-8" />
-          <title>Register</title>
+          <title>Registern</title>
           <link rel="icon" type="image/svg+xml" href="/home.png" />
         </Helmet>
       </>
