@@ -6,6 +6,7 @@ import {
   onAuthStateChanged,
   signInWithEmailAndPassword,
   signOut,
+  updateProfile,
 } from "firebase/auth";
 import app from "../Firebase/firebase.config";
 import { Navigate } from "react-router-dom";
@@ -15,7 +16,7 @@ const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-//   console.log(user);
+  console.log(user);
   const createNewUser = (email, password) => {
     // setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
@@ -36,13 +37,17 @@ const AuthProvider = ({ children }) => {
     // setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   }
+  const updateProfileData = (updatedData)=>{
+    return updateProfile(auth.currentUser, updatedData)
+  }
   const authInfo = {
     user,
     setUser,
     createNewUser,
     logOut,
     logIn,
-    loading
+    loading,
+    updateProfileData,
   };
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {

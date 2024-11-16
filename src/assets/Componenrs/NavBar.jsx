@@ -14,22 +14,29 @@ const NavBar = () => {
     return (
       <div className="flex justify-between items-center mt-4">
         <div>
-          <h1>{user && user.email}</h1>
+          <h1>{user && user.displayName}</h1>
         </div>
         <div className="space-x-3 m-3">{link}</div>
         <div className="logIn flex items-center gap-2">
           <div className="">
-            <FaUserAlt className="text-4xl border border-gray-500 rounded-full" />
+            {user && (
+              <img
+                className="w-[60px] h-[60px] rounded-full shadow-sm border bottom-1"
+                src={user.photoURL}
+              ></img>
+            )}
           </div>
-          {!user ? (
-            <Link to="/auth/logIn" className="btn btn-secondary">
-              LogIn
-            </Link>
-          ) : (
-            <button onClick={logOut} className="btn btn-secondary">
-              LogOut
-            </button>
-          )}
+          <div>
+            {!user ? (
+              <Link to="/auth/logIn" className="btn btn-secondary">
+                LogIn
+              </Link>
+            ) : (
+              <button onClick={logOut} className="btn btn-secondary">
+                LogOut
+              </button>
+            )}
+          </div>
         </div>
       </div>
     );

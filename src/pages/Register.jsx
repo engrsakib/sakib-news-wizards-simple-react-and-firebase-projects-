@@ -1,11 +1,12 @@
 import React, { useContext, useState } from 'react';
 import { Helmet } from 'react-helmet';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { authContex } from '../provider/AuthProvider';
 
 const Register = () => {
-    const {createNewUser, user, setUser} = useContext(authContex);
-
+    const { createNewUser, updateProfileData, setUser } =
+      useContext(authContex);
+      const navigate = useNavigate();
      const [formData, setFormData] = useState({
        name: "",
        photoUrl: "",
@@ -29,6 +30,11 @@ const Register = () => {
             // Signed up
             const user = userCredential.user;
             setUser(user);
+            const name = formData.name;
+            const photo = formData.photoUrl;
+            updateProfileData({ displayName: name, photoURL: photo }).then(() => {
+              navigate("/");
+            });
             // console.log(user);
             // ...
           })

@@ -4,16 +4,15 @@ import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import { authContex } from "../provider/AuthProvider";
 
 const LogIn = () => {
-  const {logIn, setUser} = useContext(authContex);
+  const { logIn, setUser } = useContext(authContex);
+  const [error, seterror] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
-  // State to store email and password
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
 
-  // Handle change in input fields
   const handleChange = (e) => {
     const { id, value } = e.target;
     setFormData((prevData) => ({
@@ -22,23 +21,19 @@ const LogIn = () => {
     }));
   };
 
-  // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Form Data:", formData); // Log form data to the console
+    // console.log("Form Data:", formData);
     logIn(formData.email, formData.password)
       .then((userCredential) => {
-        // Signed in
         const user = userCredential.user;
         setUser(user);
         navigate(location?.state ? location.state : "/");
-        // ...
       })
       .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log("error code", errorCode);
-        console.log("error Massage", errorMessage);
+        console.error("error code", error.code);
+        console.error("error message", error.message);
+        seterror(true);
       });
   };
 
@@ -61,7 +56,7 @@ const LogIn = () => {
                 placeholder="Enter your email address"
                 className="input input-bordered w-full"
                 value={formData.email}
-                onChange={handleChange} // Attach handleChange to update state
+                onChange={handleChange}
               />
             </div>
 
@@ -75,9 +70,19 @@ const LogIn = () => {
                 placeholder="Enter your password"
                 className="input input-bordered w-full"
                 value={formData.password}
-                onChange={handleChange} // Attach handleChange to update state
+                onChange={handleChange}
               />
             </div>
+
+            {/* Added Forgot Password link */}
+            {error && (
+              <div className="mb-4 text-right">
+                <p className="text-red-600"> your email or password is wrong {" "} 
+                <Link to="/auth/forgot-password" className="text-blue-500">
+                  Forgot Password?
+                </Link></p>
+              </div>
+            )}
 
             <button type="submit" className="btn btn-block btn-primary">
               Login
