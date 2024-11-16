@@ -14,14 +14,17 @@ export const authContex = createContext();
 const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 //   console.log(user);
   const createNewUser = (email, password) => {
+    // setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
   const logOut = () => {
     return signOut(auth)
       .then(() => {
         // Sign-out successful.
+        // setLoading(true);
         setUser(null);
         <Navigate to={`/auth/LogIn`}></Navigate>
       })
@@ -30,6 +33,7 @@ const AuthProvider = ({ children }) => {
       });
   };
   const logIn = (email, password) =>{
+    // setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   }
   const authInfo = {
@@ -37,7 +41,8 @@ const AuthProvider = ({ children }) => {
     setUser,
     createNewUser,
     logOut,
-    logIn
+    logIn,
+    loading
   };
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -45,6 +50,7 @@ const AuthProvider = ({ children }) => {
         // User is signed in, see docs for a list of available properties
         // https://firebase.google.com/docs/reference/js/auth.user
         setUser(user);
+        setLoading(false);
         // ...
       } else {
         // User is signed out

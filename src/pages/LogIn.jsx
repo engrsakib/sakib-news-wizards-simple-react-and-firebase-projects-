@@ -1,10 +1,12 @@
 import React, { useContext, useState } from "react";
 import { Helmet } from "react-helmet";
-import { Link, Navigate } from "react-router-dom";
+import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import { authContex } from "../provider/AuthProvider";
 
 const LogIn = () => {
   const {logIn, setUser} = useContext(authContex);
+  const location = useLocation();
+  const navigate = useNavigate();
   // State to store email and password
   const [formData, setFormData] = useState({
     email: "",
@@ -29,6 +31,7 @@ const LogIn = () => {
         // Signed in
         const user = userCredential.user;
         setUser(user);
+        navigate(location?.state ? location.state : "/");
         // ...
       })
       .catch((error) => {
